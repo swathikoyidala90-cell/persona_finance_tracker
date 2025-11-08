@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Finance Tracker Form</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f2f2f2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+
+        .form-container {
+          background-color: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          width: 300px;
+        }
+
+        .form-container h2 {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        input, select, button {
+          width: 100%;
+          padding: 10px;
+          margin: 8px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
+
+        button {
+          background-color: #04AA6D;
+          color: white;
+          border: none;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #038e5f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Add Transaction</h2>
+    <form action="/add" method="post">
+        <input type="text" name="category" placeholder="Category" required />
+        <input type="number" name="amount" placeholder="Amount" required />
+        <select name="type" required>
+            <option value="">Select Type</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+        <input type="date" name="date" required />
+        <button type="submit">Add</button>
+    </form>
+</div>
+
+</body>
+</html>
