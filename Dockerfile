@@ -1,5 +1,6 @@
 # Use OpenJDK 17 (or the version you used locally)
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
+
 
 # Set working directory inside the container
 WORKDIR /app
