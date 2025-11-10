@@ -1,15 +1,12 @@
-# Use OpenJDK 17 (or the version you used locally)
-FROM eclipse-temurin:17-jdk
-
-
-# Set working directory inside the container
+# Step 1: Build the app
+FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
-
-# Copy project files into container
 COPY . .
-
-# Build the Spring Boot app
 RUN ./mvnw clean package -DskipTests
 
-# Run the application
-CMD ["java", "-jar", "target/*.jar"]
+# Step 2: Run the app
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
